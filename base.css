@@ -1,0 +1,251 @@
+:root {
+    /* Backgrounds */
+    --bg: #0e0e10;
+    --bg-light: #1a1a1d;
+
+    /* Text */
+    --text-primary: rgba(92, 174, 144, 0.954);
+    --text-strong: rgba(18, 197, 113, 0.954);
+    --text-secondary: rgb(58, 151, 167);
+    --text-dark: rgb(16, 16, 16);
+
+    /* Accent Colors */
+    --neonGreen: rgb(34, 186, 52);
+    --neonGrey: rgb(95, 94, 94);
+    --neonWhite: rgb(237, 237, 237);
+    --neonYellow: rgb(162, 254, 63);
+    --neonBlue: rgb(16, 111, 244);
+    --neonPurple: rgb(130, 80, 250);
+    --neonPink: rgb(248, 57, 117);
+    --neonRed: rgba(218, 22, 22, 0.886);
+
+    /* Borders / Shadows */
+    --border-color: #4b5563;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+
+    --pulse: 0.5;
+
+    --neon-color: #0ff;
+
+    --tabs-w: 32px;
+}
+.color-green {
+    --neon-color: rgb(34, 186, 52);
+}
+.color-yellow {
+    --neon-color: rgb(162, 254, 63);
+}
+.color-white {
+    --neon-color: rgb(237, 237, 237);
+}
+.color-blue {
+    --neon-color: rgb(16, 111, 244);
+}
+.color-grey {
+    --neon-color: rgb(95, 94, 94);
+}
+.color-pink {
+    --neon-color: rgb(248, 57, 117);
+}
+
+.color-red {
+    --neon-color: rgba(218, 22, 22, 0.886);
+}
+.text-neon {
+    color: var(--text-dark);
+    text-shadow:
+        0 0 2px var(--neon-color);
+        0 0 5px var(--neon-color);
+}
+.text-neon-bright {
+    color: var(--text-dark);
+    text-shadow:
+        0 0 calc(2px * var(--pulse)) var(--neon-color),
+        0 0 calc(4px * var(--pulse)) var(--neon-color),
+        0 0 calc(6px * var(--pulse)) var(--neon-color),
+        0 0 calc(18px * var(--pulse)) var(--neon-color);
+}
+
+.share-tech-mono-regular {
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+/* @font-face {
+    font-family: "stealth57";
+
+    src: url("/fonts/stealth57.ttf") format("truetype");
+
+    font-weight: normal;
+
+    font-style: normal;
+} */
+
+.font-stealth {
+    font-family: stealth57, sans-serif;
+}
+
+
+html,
+body {
+    margin: 0;
+    /* height: 100vh; */
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    /* font-family: system-ui, sans-serif; */
+    font-family: "Share Tech Mono", monospace;
+    background: #111;
+    color: var(--text-primary);
+}
+
+body {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+h2 {
+    color: var(--text-secondary);
+    font-size: 3rem;
+}
+
+h3 {
+    color: var(--text-secondary);
+    background-color: #0b0b0b;
+    font-size: 1.25rem;
+}
+
+h4 {
+    /* font-size: 1.25rem; */
+    color: var(--neonGreen);
+}
+
+p {
+    line-height: 150%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+a {
+    color: var(--neonBlue);
+}
+
+li {
+    line-height: 175%;
+}
+strong {
+    color: var(--text-strong);
+    /* font-size: larger; */
+}
+
+header {
+    background: #111;
+    text-align: center;
+    padding: 2px 6px;
+    /* position: sticky; */
+    top: 0;
+    z-index: 1;
+    flex: 0 0 auto;
+}
+
+header h1 {
+    letter-spacing: -0.1em;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.brand {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.main-sections {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    position: relative;
+    /* Reserve space for vertical tabs */
+    /* --tabs-w: 32px; */
+    /* padding-left: var(--tabs-w); */
+    align-items: center;
+    
+}
+
+section {
+    transition: flex-grow 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    max-width: 90%;
+    align-items: left;
+    margin-top: 20px;
+    margin-bottom: 6rem;
+}
+
+section p {
+    text-align: left;
+    line-height: 150%;
+}
+
+.blurb p {
+    text-align: justify;
+}
+
+
+
+
+.poster {
+    --w: 2;
+    /* poster width ratio  */
+    --h: 3;
+    /* poster height ratio */
+    aspect-ratio: var(--w) / var(--h);
+
+    /* Choose the limiting side of the parent */
+    /* width: min(100cqw, calc(100cqh * (var(--w) / var(--h)))); */
+    /* width: min(100vw, calc(75vh * (var(--w) / var(--h)))); */
+    /* width: min(80vw, calc(80vh * (var(--w) / var(--h)))); */
+    max-width: 100%;
+    max-height: 80vh;
+    height: auto;
+
+    text-align: center;
+
+    /* Optional cosmetics */
+    border-radius: 12px;
+    overflow: hidden;
+    /* demo visuals; remove if you have your own */
+    box-shadow: 0 0 0 1px hsl(0 0% 100% / .08) inset;
+    background: #0b0b0b;
+
+    margin-top: 2.0em;
+
+    padding: 1em;
+
+}
+
+.poster h3 {
+    font-size: 2.5em;
+}
+
+.poster p {
+    font-size: 1.2rem;
+    line-height: 150%;
+}
+
+.poster img {
+    width: 100%;
+    margin-top:2em;
+}
+
+
+
+footer {
+    color: var(--text-secondary);
+}
+
+footer p {
+    line-height: 0.5rem;
+}
