@@ -7,6 +7,7 @@
     --text-primary: rgba(92, 174, 144, 0.954);
     --text-strong: rgba(18, 197, 113, 0.954);
     --text-secondary: rgb(58, 151, 167);
+    --text-dim: rgb(76, 93, 95);
     --text-dark: rgb(16, 16, 16);
 
     /* Accent Colors */
@@ -29,21 +30,27 @@
 
     --tabs-w: 32px;
 }
+
 .color-green {
     --neon-color: rgb(34, 186, 52);
 }
+
 .color-yellow {
     --neon-color: rgb(162, 254, 63);
 }
+
 .color-white {
     --neon-color: rgb(237, 237, 237);
 }
+
 .color-blue {
     --neon-color: rgb(16, 111, 244);
 }
+
 .color-grey {
     --neon-color: rgb(95, 94, 94);
 }
+
 .color-pink {
     --neon-color: rgb(248, 57, 117);
 }
@@ -51,12 +58,14 @@
 .color-red {
     --neon-color: rgba(218, 22, 22, 0.886);
 }
+
 .text-neon {
     color: var(--text-dark);
     text-shadow:
         0 0 2px var(--neon-color);
-        0 0 5px var(--neon-color);
+    0 0 5px var(--neon-color);
 }
+
 .text-neon-bright {
     color: var(--text-dark);
     text-shadow:
@@ -71,6 +80,7 @@
     font-weight: 400;
     font-style: normal;
 }
+
 /* @font-face {
     font-family: "stealth57";
 
@@ -105,7 +115,7 @@ body {
 
 h2 {
     color: var(--text-secondary);
-    font-size: 3rem;
+    font-size: 1rem;
 }
 
 h3 {
@@ -132,6 +142,7 @@ a {
 li {
     line-height: 175%;
 }
+
 strong {
     color: var(--text-strong);
     /* font-size: larger; */
@@ -178,7 +189,8 @@ section {
     display: flex;
     flex-direction: column;
     min-height: 0;
-    max-width: 90%;
+    /* max-width: 90%; */
+    width: 80%;
     align-items: left;
     margin-top: 20px;
     margin-bottom: 6rem;
@@ -209,7 +221,7 @@ section p {
     /* width: min(80vw, calc(80vh * (var(--w) / var(--h)))); */
     max-width: 100%;
     max-height: 80vh;
-    height: auto;
+    height: 0;
 
     text-align: center;
 
@@ -241,6 +253,20 @@ section p {
 }
 
 
+.ui-row {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-group {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: .5rem;
+}
+
 
 footer {
     color: var(--text-secondary);
@@ -249,3 +275,195 @@ footer {
 footer p {
     line-height: 0.5rem;
 }
+
+/* Minimal modern form controls */
+.ui-select {
+    font: inherit;
+    color: var(--text-primary);
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    appearance: none;
+}
+
+.ui-select:focus {
+    border-color: var(--neonBlue);
+    box-shadow: 0 0 0 3px rgba(16, 111, 244, 0.25);
+}
+
+.ui-button {
+    font: inherit;
+    cursor: pointer;
+    color: var(--neonWhite);
+    background: #151516;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.5rem 0.9rem;
+    outline: none;
+    transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 60ms ease;
+}
+
+.ui-button:hover {
+    background: rgba(34, 186, 52, 0.12);
+    box-shadow: 0 0 0 2px rgba(34, 186, 52, 0.18) inset;
+}
+
+.ui-button:focus-visible {
+    border-color: var(--neonGreen);
+    box-shadow: 0 0 0 3px rgba(34, 186, 52, 0.25);
+}
+
+.ui-button:active {
+    transform: translateY(1px);
+}
+
+/* Simple layout helpers */
+.ui-row {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-group {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: .5rem;
+}
+
+
+
+
+/* Simple outline styles (clean, generic, not Workflowy) */
+.outline {
+    --text: #222;
+    --muted: #6b7280;
+    --rule: #e5e7eb;
+    --accent: #111;
+    --bg: transparent;
+
+    color: var(--text);
+    background: var(--bg);
+    margin: 1rem auto;
+    font: 400 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+    max-width: 80%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .outline {
+        --text: var(--text-primary);
+        --muted: var(--text-dark);
+        --rule: #2b2f36;
+        --accent: var(--text-strong);
+    }
+}
+
+/* Header tags and hashtag */
+.outline-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.tag {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .85rem;
+    padding: .18rem .48rem;
+    border: 1px solid var(--rule);
+    border-radius: .4rem;
+    color: var(--accent);
+    background: rgba(127, 127, 127, .06);
+    white-space: nowrap;
+}
+
+.hashtag {
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+/* Notes block */
+.notes {
+    margin: 0 0 1rem 0;
+    padding: .75rem 1rem;
+    border-left: 3px solid var(--rule);
+}
+
+.notes p {
+    margin: .25rem 0;
+    color: var(--text-dim);
+    font-size:1rem;
+    font-style: italic;
+}
+
+.notes strong {
+    color: var(--text-strong);
+}
+
+/* Outline list */
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list>li {
+    margin: .25rem 0 .35rem;
+}
+
+.list li {
+    position: relative;
+    padding-left: 1.1rem;
+    /* space for marker dot */
+    word-break: break-word;
+}
+
+/* simple dot marker */
+.list li::before {
+    /* content: "";
+    position: absolute;
+    left: .3rem;
+    top: .75em;
+    width: .32rem;
+    height: .32rem;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .55;
+    transform: translateY(-50%); */
+}
+
+/* child levels: subtle vertical rule and indent */
+.list ul {
+    list-style: none;
+    margin: .25rem 0 .35rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--rule);
+    color: var(--text-primary);
+}
+
+.list ul li {
+    margin: .15rem 0;
+}
+
+/* titles for first-line labels */
+.title {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* small affordance on hover (optional) */
+.list li:hover::before {
+    opacity: .9;
+}
+
+/* .list li:hover>.title {
+    text-decoration: underline;
+    text-decoration-thickness: .06em;
+    text-underline-offset: 2px;
+} */

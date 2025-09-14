@@ -26,7 +26,7 @@
                 <span class="text-neonGreen">r</span>
                 <span class="text-neonGrey">c</span>
                 <span class="text-neonGrey">h</span>
-        
+    
                 <span class="text-neonWhite">L</span>
                 <span class="text-neonBlue">o</span>
                 <span class="text-neonYellow">g</span>
@@ -63,23 +63,38 @@
         
         
 
-            <h2>Pulse 🤖!</h3>
-                <p>live streaming the mobile drum circle beat</p>
-                <p>for playing along with your device</p>
+            <h1>🤖!</h3>
+                <p>when porchLogic is live,</p>
+                <p>play along with the pulse here:</p>
                 <br>
                 <br>
-                <h3>Mode A: player</h3>
-                <!-- todo: a dropdown list of general instrument types, then a button next to it that will run some js later  -->
+                <h2>Mode A: player</h2>
+                <div class="instrument-selector ui-row">
+                    <label for="instrumentType">Instrument:</label>
+                    <select id="instrumentType" name="instrumentType" class="ui-select">
+                        <option value="kick">kick</option>
+                        <option value="hats">hats</option>
+                        <option value="snare">snare</option>
+                        <option value="pads/chords">pads/chords</option>
+                        <option value="bass">bass</option>
+                        <option value="melody">melody</option>
+                    </select>
+                    <button id="instrumentAction" type="button" class="ui-button">Go</button>
+                </div>
+                <br>
                 <p>this will play through your phone speaker or portable speaker</p>
-
-                <h3>Mode B: iOS beats</h3>
-                <!-- todo make this into a couple buttons that will be used to go to the Dialekt and Drumcomputer apps on the ios app stoe -->
-
-                <h3>Mode C: BYOGear</h3>
-                <p>USB MIDI device or host</p>
-                <p>connect with SMB1</p>
-                <a href="#">🎁 purchase the kit</a>
-                <p>🛠<a href="#"> diy build</a></p>
+                <h2>Mode B: iOS beats</h2>
+                <p>requires iOS 15 or later or iPadOS 13.0 or later</p>
+                <div class="button-group">
+                    <a class="ui-button" href="https://apps.apple.com/us/search?term=Dialekt" target="_blank"
+                        rel="noopener noreferrer">Get Dialekt</a>
+                    <a class="ui-button" href="https://apps.apple.com/us/search?term=Drumcomputer" target="_blank"
+                        rel="noopener noreferrer">Get Drumcomputer</a>
+                </div>
+ 
+                <h2>Mode C: BYOGear</h2>
+                <p>program your gear according to the format below</p>
+                <p>requires USB MIDI device OR host</p>
             <div class="blurb">
         
                 
@@ -91,19 +106,381 @@
         
             </div>
 
-            <br>
-            <br>
-            <p><strong>Select you instrument</strong></p>
+
             <br>
             <br>
         
 
         
         </section>
+        <section class="outline">
+            <header class="outline-header">
+                <span class="tag">song 1</span>
+                <span class="tag">F#</span>
+                <span class="hashtag">#drumcircle</span>
+            </header>
+        
+            <blockquote class="notes">
+                <p><strong>notes:</strong></p>
+                <p>If you were to just program a song on your device, and expect it to play well with the swarm, follow this
+                    direction.</p>
+                <br>
+                <p>It should default to non-melodic/atonal, if your gear cannot change the notes of sections dynamically.</p>
+                <br>
+                <p>Otherwise, you can just make the drums work for the song structure, and pipe the SMB1 MIDI for melodic to a
+                    synth on your rig.</p>
+            </blockquote>
+        
+            
+            <!-- <ul class="list">
+                <li>
+                    <span class="title">0: Silence</span>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">1: Tuning / Warmup</span>
+                    <ul>
+                        <li>like cyber symphony orchestra warm up sounds</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">2: Click / Metronome</span>
+                    <ul>
+                        <li>hat/click sound every quarter note</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">3: Ambient texture / clicks</span>
+                    <ul>
+                        <li>think cyber forest creatures coming out at night</li>
+                        <li>or ocean life clicks</li>
+                        <li>can/should reference the rhythmic grid</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">4: Drum Circle Base</span>
+                    <ul>
+                        <li>(four on the floor or similar)</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">5: Progression A</span>
+                    <ul>
+                        <li>a main loop</li>
+                        <li>Should feel like “the song is underway.”</li>
+                        <li>drum circle style, with a single (root note) hum</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">6: Fill / Transition 1</span>
+                    <ul>
+                        <li>break tension and signal the next shift.</li>
+                        <li>Short, obvious, swarm-wide cue.</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">7: Progression B (contrast)</span>
+                    <ul>
+                        <li>introduce variation:</li>
+                        <li>change rhythm, mode, or density.</li>
+                        <li>melodic gear can optionally play scale-based riffs here.</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">8: Fill / Transition 2</span>
+                    <ul>
+                        <li>could be silence + accent, or a sudden swell.</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">9: Progression C (climax / open canvas)</span>
+                    <ul>
+                        <li>the most energetic section; allow melodic/harmonic devices maximum freedom.</li>
+                        <li>Drums should lock grid, but melodic devices can drive mood shifts.</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">10: Breakdown</span>
+                    <ul>
+                        <li>strip to minimal pulse or ambient layer.</li>
+                        <li>Gives listeners and swarm a “breather.”</li>
+                    </ul>
+                </li>
+        
+                <li>
+                    <span class="title">11: Final progression / outro</span>
+                    <ul>
+                        <li>return to A or morph into something stable to close.</li>
+                        <li>Optionally dissolve into silence</li>
+                    </ul>
+                </li>
+            </ul> -->
+            
+            <!-- <ul class="list">
+                <li>
+                    <span class="title">0: Silence</span>
+                    <ul>
+                        <li>reset point, swarm entry baseline.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">1: Tuning / Warmup</span>
+                    <ul>
+                        <li>cyber-orchestra sound checks, drones, swells.</li>
+                        <li>Ambient / Soundscape genre reference.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">2: Click / Metronome</span>
+                    <ul>
+                        <li>hat/click every quarter note.</li>
+                        <li>Minimal Techno skeleton.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">3: Ambient texture / clicks</span>
+                    <ul>
+                        <li>cyber forest / ocean clicks.</li>
+                        <li>Glitch / IDM feel, still sparse.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">4: Drum Circle Base</span>
+                    <ul>
+                        <li>steady four-on-the-floor.</li>
+                        <li>Techno foundation begins.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">5: Progression A</span>
+                    <ul>
+                        <li>main loop underway.</li>
+                        <li>Deep House groove: rooted hum + layered percussion.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">6: Fill / Transition 1</span>
+                    <ul>
+                        <li>short, obvious cue.</li>
+                        <li>Breakbeat snare fill / filter sweep.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">7: Progression B (contrast)</span>
+                    <ul>
+                        <li>shift rhythm/density.</li>
+                        <li>Breakbeat / Jungle textures; more syncopation.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">8: Fill / Transition 2</span>
+                    <ul>
+                        <li>silence + accent or sudden swell.</li>
+                        <li>Dubstep-style drop signal or trance riser.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">9: Progression C (climax / open canvas)</span>
+                    <ul>
+                        <li>most energetic, maximum freedom.</li>
+                        <li>Drum & Bass / Psytrance intensity; grid locked, melodic devices wild.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">10: Breakdown</span>
+                    <ul>
+                        <li>strip to minimal pulse or ambient bed.</li>
+                        <li>Dub Techno or Ambient House vibe.</li>
+                    </ul>
+                </li>
+            
+                <li>
+                    <span class="title">11: Final progression / outro</span>
+                    <ul>
+                        <li>return to A or morph into stable closure.</li>
+                        <li>Chillout / Downtempo dissolve → optional silence.</li>
+                    </ul>
+                </li>
+            </ul> -->
+
+            <ul class="list">
+                <li data-level="0">
+                    <span class="title">0: Silence</span>
+                    <ul>
+                        <li>Genre: —</li>
+                        <li>BPM: transport armed @ <strong>90</strong> (no audio)</li>
+                        <li>Notes: baseline sync / “swarm entry.”</li>
+                    </ul>
+                </li>
+            
+                <li data-level="1">
+                    <span class="title">1: Tuning / Warmup</span>
+                    <ul>
+                        <li>Genre: Ambient / Soundscape</li>
+                        <li>BPM: <strong>90</strong></li>
+                        <li>Notes: drones, swells, soft cues.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="2">
+                    <span class="title">2: Click / Metronome</span>
+                    <ul>
+                        <li>Genre: Minimal Techno skeleton</li>
+                        <li>BPM: <strong>96</strong></li>
+                        <li>Notes: hat/click on quarters, light FX.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="2">
+                    <span class="title">3: Ambient Texture / Clicks</span>
+                    <ul>
+                        <li>Genre: IDM / Glitch (sparse)</li>
+                        <li>BPM: <strong>100</strong></li>
+                        <li>Notes: cyber-creature clicks; reference the grid.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="3" data-family="A">
+                    <span class="title">4: Groove Base A</span>
+                    <ul>
+                        <li>Genre: Proto-Techno (four-on-the-floor)</li>
+                        <li>BPM: <strong>116</strong></li>
+                        <li>Notes: first danceable pulse; simple kick pattern.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="3" data-family="A">
+                    <span class="title">5: Progression A</span>
+                    <ul>
+                        <li>Genre: Deep House</li>
+                        <li>BPM: <strong>120</strong></li>
+                        <li>Notes: “song underway” groove; rooted hum + light tops.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="3" data-family="B">
+                    <span class="title">6: Groove Base B</span>
+                    <ul>
+                        <li>Genre: Breaks bed / early UKG feel</li>
+                        <li>BPM: <strong>124</strong></li>
+                        <li>Notes: syncopated kick/snare; keep it open.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="3" data-family="B">
+                    <span class="title">7: Progression B</span>
+                    <ul>
+                        <li>Genre: Breakbeat / UK Garage</li>
+                        <li>BPM: <strong>128</strong></li>
+                        <li>Notes: shuffles, ghost snares; optional scale riffs.</li>
+                    </ul>
+                </li>
+            
+                <!-- Left high-energy subtree -->
+                <li data-level="4" data-family="A" data-role="lift">
+                    <span class="title">8: A-Lift</span>
+                    <ul>
+                        <li>Genre: Techno (tension rise)</li>
+                        <li>BPM: <strong>130</strong></li>
+                        <li>Notes: risers, tighter hats; hold bass simple.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="4" data-family="A" data-role="peak1">
+                    <span class="title">9: A-Peak 1</span>
+                    <ul>
+                        <li>Genre: Peak-time Techno</li>
+                        <li>BPM: <strong>134</strong></li>
+                        <li>Notes: main motif hits; grid locked, maximal drive.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="4" data-family="A" data-role="lift2">
+                    <span class="title">10: A-Lift 2</span>
+                    <ul>
+                        <li>Genre: Trance / Psy lift</li>
+                        <li>BPM: <strong>138</strong></li>
+                        <li>Notes: longer phrases, filters, gated pads.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="4" data-family="A" data-role="peak2">
+                    <span class="title">11: A-Peak 2</span>
+                    <ul>
+                        <li>Genre: Psy-leaning Techno (clean climax)</li>
+                        <li>BPM: <strong>142</strong></li>
+                        <li>Notes: biggest energy in the A-path.</li>
+                    </ul>
+                </li>
+            
+                <!-- Right high-energy subtree -->
+                <li data-level="4" data-family="B" data-role="lift">
+                    <span class="title">12: B-Lift</span>
+                    <ul>
+                        <li>Genre: Rave / Hardcore Breaks</li>
+                        <li>BPM: <strong>150</strong></li>
+                        <li>Notes: detuned stabs; think proto-jungle bridge.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="4" data-family="B" data-role="peak1">
+                    <span class="title">13: B-Peak 1</span>
+                    <ul>
+                        <li>Genre: Jungle</li>
+                        <li>BPM: <strong>165</strong></li>
+                        <li>Notes: chopped amen energy; bass call-and-response.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="4" data-family="B" data-role="lift2">
+                    <span class="title">14: B-Peak 2</span>
+                    <ul>
+                        <li>Genre: Drum &amp; Bass (apex)</li>
+                        <li>BPM: <strong>174</strong></li>
+                        <li>Notes: tight subs, laser hats; most intense grid.</li>
+                    </ul>
+                </li>
+            
+                <li data-level="4" data-family="B" data-role="resolve">
+                    <span class="title">15: Outro / Resolve</span>
+                    <ul>
+                        <li>Genre: Downtempo / Dub Techno wash</li>
+                        <li>BPM: <strong>100</strong> (or dissolve to silence)</li>
+                        <li>Notes: strip to pulse/pads; credits / goodbye.</li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </section>
+        <p><strong>init@porchlogic.com</strong></p>
 
     </div>
+    
     <footer>
-        <p style="text-align: center;">init@porchlogic.com</p>    
+        <p style="text-align: center;">© Porch Logic 2025</p>
     </footer>
 
 
