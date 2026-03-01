@@ -1,0 +1,23 @@
+<!-- DJ login template for email/password authentication into Pulse control routes. -->
+<div class="ui-stack">
+    <section class="ui-section">
+        <h2>login</h2>
+        <form class="ui-form" data-role="dj-login-form">
+            <div class="ui-field">
+                <label class="ui-label" for="dj-email">email</label>
+                <input id="dj-email" class="ui-input" type="email" autocomplete="email" placeholder="dj@porchlogic.com">
+            </div>
+            <div class="ui-field">
+                <label class="ui-label" for="dj-password">password</label>
+                <input id="dj-password" class="ui-input" type="password" autocomplete="current-password" placeholder="••••••••">
+            </div>
+            <p class="ui-label" data-role="login-error" hidden></p>
+            <div class="ui-row-end">
+                <button type="submit" class="ui-button" data-role="login-submit">DJ login</button>
+            </div>
+        </form>
+        <div class="ui-row-end">
+            <button type="button" class="ui-button ui-button--small" data-nav="default">Back</button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,51 @@
+<!-- Director screen template: login plus controls for start/end performance, live DJ selection, tempo, and join QR link. -->
+<div class="ui-stack">
+    <section class="ui-section">
+        <h2>director</h2>
+        <form class="ui-form" data-role="director-login-form">
+            <div class="ui-field">
+                <label class="ui-label" for="director-password">password</label>
+                <input id="director-password" class="ui-input" type="password" autocomplete="current-password" placeholder="••••••••">
+            </div>
+            <p class="ui-label" data-role="director-error" hidden></p>
+            <div class="ui-row-end">
+                <button type="submit" class="ui-button">Login</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="ui-section" data-role="director-controls" hidden>
+        <div class="ui-connection-meta">
+            <p class="ui-status ui-status--not-connected" data-role="director-connection-status">disconnected</p>
+            <div class="ui-beat-display" aria-label="current beat" data-role="director-current-beat">0</div>
+        </div>
+        <div class="ui-row-between">
+            <h2>performance controls</h2>
+            <button type="button" class="ui-button ui-button--small" data-role="director-logout">Logout</button>
+        </div>
+        <div class="ui-stack">
+            <div class="ui-row-between">
+                <button type="button" class="ui-button" data-role="director-start">Start Performance</button>
+                <button type="button" class="ui-button" data-role="director-end">End Performance</button>
+            </div>
+            <div>
+                <p class="ui-label">join url</p>
+                <p class="ui-label" data-role="director-join-url">not started</p>
+                <div class="ui-center" style="margin-top: 0.5rem;">
+                    <img data-role="director-join-qr" alt="Performance join QR code" style="width: 12rem; height: 12rem; border: 1px solid var(--ui-page-border); border-radius: 0.5rem;" hidden>
+                </div>
+            </div>
+            <div class="ui-field">
+                <label class="ui-label" for="director-live-dj">live dj</label>
+                <select id="director-live-dj" class="ui-input" data-role="director-live-dj"></select>
+            </div>
+            <div class="ui-field">
+                <label class="ui-label" for="director-bpm">bpm</label>
+                <input id="director-bpm" class="ui-input" type="number" min="60" max="220" step="1" data-role="director-bpm">
+            </div>
+            <div class="ui-row-end">
+                <button type="button" class="ui-button" data-role="director-set-bpm">Apply Tempo (next downbeat)</button>
+            </div>
+        </div>
+    </section>
+</div>

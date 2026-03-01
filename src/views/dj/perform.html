@@ -1,0 +1,31 @@
+<!-- DJ perform template with song selector, play/pause control, and quantized jump grid. -->
+<div class="ui-stack">
+    <div class="ui-connection-meta">
+        <p class="ui-status ui-status--not-connected">disconnected</p>
+        <div class="ui-beat-display" aria-label="current beat">0</div>
+    </div>
+    <section class="ui-section">
+        <div class="ui-row-between">
+            <h2>perform</h2>
+            <p class="ui-label" data-role="perform-mode">practice</p>
+            <button type="button" class="ui-button ui-button--small" data-nav="dj">Back to songs</button>
+        </div>
+        <div class="ui-row-between" style="margin-top: 0.75rem;">
+            <select class="ui-input" data-role="perform-song-select"></select>
+            <button type="button" class="ui-button" data-role="perform-play-toggle">Play</button>
+        </div>
+        <div class="ui-row-between" style="margin-top: 0.75rem;">
+            <div class="ui-field" style="margin: 0; flex: 1;">
+                <label class="ui-label" for="perform-bpm">bpm</label>
+                <input id="perform-bpm" class="ui-input" type="number" min="60" max="220" step="1" data-role="perform-bpm">
+            </div>
+            <button type="button" class="ui-button" data-role="perform-set-bpm">Apply Tempo (next downbeat)</button>
+        </div>
+    </section>
+    <section class="ui-section">
+        <div class="ui-perform-grid-wrap">
+            <div class="ui-perform-grid" data-role="perform-grid" aria-label="track jump grid"></div>
+            <div class="ui-perform-track-labels" data-role="perform-track-labels"></div>
+        </div>
+    </section>
+</div>

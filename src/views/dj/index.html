@@ -1,0 +1,33 @@
+<!-- DJ library template with connection status, identity, song/track editor, and file upload controls. -->
+<div class="ui-stack">
+    <div class="ui-connection-meta">
+        <p class="ui-status ui-status--not-connected">disconnected</p>
+        <div class="ui-beat-display" aria-label="current beat">0</div>
+    </div>
+    <section class="ui-section">
+        <div class="ui-row-between">
+            <p class="ui-label" data-role="dj-identity">logged in as</p>
+            <div class="ui-row-between">
+                <button type="button" class="ui-button" data-nav="perform">perform</button>
+                <button type="button" class="ui-button ui-button--small" data-role="dj-logout">Logout</button>
+            </div>
+        </div>
+        <div class="ui-row-between" style="margin-top: 0.75rem;">
+            <div class="ui-field" style="margin: 0; flex: 1;">
+                <label class="ui-label" for="dj-bpm">bpm</label>
+                <input id="dj-bpm" class="ui-input" type="number" min="60" max="220" step="1" data-role="dj-bpm">
+            </div>
+            <button type="button" class="ui-button" data-role="dj-set-bpm">Apply Tempo (next downbeat)</button>
+        </div>
+    </section>
+    <section class="ui-section">
+        <div class="ui-row-between">
+            <h2>songs</h2>
+            <button type="button" class="ui-button ui-button--small" data-nav="default">Exit</button>
+        </div>
+        <div class="ui-song-list" data-role="song-list"></div>
+        <div class="ui-song-add-wrap">
+            <button type="button" class="ui-song-add" aria-label="Add song" data-role="add-song">+</button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pulse</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/styles/foundation.css">
+</head>
+<body>
+    <main>
+        <h1>Pulse</h1>
+        <div id="app-global-audio"></div>
+        <div id="app-view" class="ui-viewport-center-when-short"></div>
+    </main>
+    <div id="app-version" class="ui-app-version">version: loading...</div>
+    <script>
+        window.PULSE_API_BASE_URL = "https://api.porchlogic.com";
+        window.PULSE_WS_URL = "wss://api.porchlogic.com/pulse/ws";
+    </script>
+    <script type="module">
+        import { initRouter } from "./src/router.js";
+        import { mountGlobalAudioControls } from "./src/components/ui/global-audio-controls.js";
+        initRouter();
+        mountGlobalAudioControls({
+            mountNode: document.getElementById("app-global-audio"),
+        });
+
+        const versionEl = document.getElementById("app-version");
+        const setVersion = (value) => {
+            if (!versionEl) {
+                return;
+            }
+            versionEl.textContent = `version: ${value}`;
+        };
+
+        try {
+            const response = await fetch("./version.json", { cache: "no-store" });
+            if (!response.ok) {
+                throw new Error("missing version");
+            }
+            const payload = await response.json();
+            setVersion(payload.version || "unknown");
+        } catch {
+            setVersion("dev");
+        }
+    </script>
+</body>
+</html>
