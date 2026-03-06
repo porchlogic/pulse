@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pulse Unified UI Scratch (Shoelace)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/dark.css">
+    <style>
+        :root {
+            --sl-font-sans: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+            --sl-color-primary-500: #67efac;
+            --sl-color-primary-600: #57d997;
+            --sl-color-primary-700: #45b87f;
+            --sl-border-radius-medium: 12px;
+            --sl-border-radius-large: 14px;
+            --pl-bg: #090d13;
+            --pl-surface: #101823;
+            --pl-line: #253547;
+            --pl-muted: #9eb2d1;
+            --pl-pad-on: rgba(103, 239, 172, 0.16);
+            --pl-pad-arm: rgba(255, 98, 146, 0.34);
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+            background:
+                radial-gradient(1000px 550px at 15% -18%, #21334d 0%, transparent 60%),
+                radial-gradient(800px 420px at 110% -2%, #3b2145 0%, transparent 60%),
+                var(--pl-bg);
+        }
+
+        body {
+            font-family: var(--sl-font-sans);
+            color: var(--sl-color-neutral-100);
+        }
+
+        .page {
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .section {
+            width: 100%;
+            border: 1px solid var(--pl-line);
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border-radius: 14px;
+            padding: 14px;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            color: var(--pl-muted);
+            font-size: 12px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .h1 {
+            margin: 4px 0 0;
+            font-size: 30px;
+            line-height: 1.05;
+            font-weight: 700;
+        }
+
+        .default-grid,
+        .shell-grid,
+        .settings-grid,
+        .song-settings {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .qr {
+            border: 1px dashed var(--pl-line);
+            border-radius: 12px;
+            min-height: 180px;
+            display: grid;
+            place-items: center;
+            color: var(--pl-muted);
+            background: rgba(255,255,255,0.02);
+            font-size: 13px;
+        }
+
+        .topbar {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .beat {
+            width: 54px;
+            aspect-ratio: 1/1;
+            border: 1px solid var(--pl-line);
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: #0f1723;
+            font-weight: 700;
+        }
+
+        .tracks {
+            display: grid;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .track {
+            aspect-ratio: 1/1;
+            border: 1px solid var(--pl-line);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: var(--pl-muted);
+            background: rgba(255,255,255,0.02);
+            font-size: 12px;
+        }
+
+        .track.on {
+            border-color: rgba(103, 239, 172, 0.55);
+            box-shadow: inset 0 0 0 2px rgba(103,239,172,0.20);
+            background: var(--pl-pad-on);
+            color: #d7ffe9;
+        }
+
+        .song {
+            border: 1px solid var(--pl-line);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.16);
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .song-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .song-settings {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .track-meta {
+            display: grid;
+            gap: 7px;
+            margin: 8px 0;
+        }
+
+        .track-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto auto;
+            gap: 8px;
+        }
+
+        .launcher {
+            border: 1px solid var(--pl-line);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            padding: 10px;
+        }
+
+        .transport {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .transport-left,
+        .transport-right {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .col-titles {
+            display: grid;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: var(--pl-muted);
+            text-align: center;
+        }
+
+        .pad-grid {
+            display: grid;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .pad {
+            aspect-ratio: 1/1;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pad::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to bottom,
+                    rgba(255,255,255,0.06) 0 25%,
+                    transparent 25% 50%,
+                    rgba(255,255,255,0.06) 50% 75%,
+                    transparent 75% 100%);
+            opacity: 0.35;
+        }
+
+        .pad.playing {
+            box-shadow: inset 0 0 0 2px rgba(103,239,172,0.35);
+            background: var(--pl-pad-on);
+        }
+
+        .pad.armed {
+            box-shadow: inset 0 0 0 2px var(--pl-pad-arm);
+        }
+
+        .subtle {
+            color: var(--pl-muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 980px) {
+            .song-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .tracks, .col-titles, .pad-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .topbar { grid-template-columns: auto 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="section">
+            <div class="section-head">
+                <div>
+                    <div class="label">Pulse Shoelace Scratch</div>
+                    <h1 class="h1">Unified Full-Width UI Mock</h1>
+                </div>
+                <div>
+                    <sl-badge pill variant="success">live</sl-badge>
+                    <sl-badge pill>troupe</sl-badge>
+                    <sl-badge pill variant="warning">director</sl-badge>
+                    <sl-badge pill variant="danger">artist</sl-badge>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head">
+                <div class="label">Default Entry</div>
+            </div>
+            <div class="default-grid">
+                <div class="qr">QR Scanner Placeholder</div>
+                <sl-input label="manual code / url" value="https://pulse..."></sl-input>
+                <sl-button variant="primary">Join with Code</sl-button>
+                <sl-divider></sl-divider>
+                <sl-input label="username" value="artist-user"></sl-input>
+                <sl-input label="password" type="password" password-toggle value="••••••••"></sl-input>
+                <sl-button variant="primary">Sign In</sl-button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="topbar">
+                <div class="beat">12</div>
+                <div>
+                    <div class="label">Current Artist</div>
+                    <div style="font-size: 19px;">Aria Signal</div>
+                </div>
+                <sl-badge variant="success" pill>connected</sl-badge>
+                <sl-button size="small">Logout</sl-button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head"><div class="label">#all Settings / Output</div></div>
+            <div class="settings-grid">
+                <sl-range label="speaker offset (ms)" min="0" max="250" value="82"></sl-range>
+                <sl-switch checked>metronome</sl-switch>
+                <sl-switch checked>noise floor</sl-switch>
+            </div>
+            <div class="tracks">
+                <div class="track on">Track 1</div><div class="track">Track 2</div><div class="track">Track 3</div><div class="track">Track 4</div>
+                <div class="track">Track 5</div><div class="track">Track 6</div><div class="track">Track 7</div><div class="track">Track 8</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head"><div class="label">#artist Launcher Area</div></div>
+
+            <article class="song">
+                <div class="song-head">
+                    <strong>Song 1</strong>
+                    <div>
+                        <sl-button size="small">Move Up</sl-button>
+                        <sl-button size="small">Move Down</sl-button>
+                    </div>
+                </div>
+                <div class="song-settings">
+                    <sl-input label="BPM" value="120"></sl-input>
+                    <sl-input label="beats per phrase" value="4"></sl-input>
+                    <sl-input label="phrases per row" value="4"></sl-input>
+                    <sl-input label="rows per song" value="6"></sl-input>
+                </div>
+                <div class="track-meta">
+                    <div class="track-row">
+                        <sl-input label="track 1 name" value="Kick Stem"></sl-input>
+                        <sl-button>Upload</sl-button>
+                        <sl-button variant="danger">Clear</sl-button>
+                    </div>
+                    <div class="track-row">
+                        <sl-input label="track 2 name" value="Bass Stem"></sl-input>
+                        <sl-button>Upload</sl-button>
+                        <sl-button variant="danger">Clear</sl-button>
+                    </div>
+                </div>
+
+                <div class="launcher">
+                    <div class="transport">
+                        <div class="transport-left">
+                            <sl-button variant="primary">Play / Pause</sl-button>
+                        </div>
+                        <div class="transport-right">
+                            <sl-input size="small" value="120" label="BPM"></sl-input>
+                            <sl-input size="small" value="4" label="phrases/row"></sl-input>
+                            <sl-input size="small" value="6" label="rows/song"></sl-input>
+                        </div>
+                    </div>
+                    <div class="col-titles">
+                        <div>Track 1</div><div>Track 2</div><div>Track 3</div><div>Track 4</div>
+                        <div>Track 5</div><div>Track 6</div><div>Track 7</div><div>Track 8</div>
+                    </div>
+                    <div class="pad-grid">
+                        <div class="pad playing"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div>
+                        <div class="pad"></div><div class="pad armed"></div><div class="pad"></div><div class="pad"></div>
+                        <div class="pad"></div><div class="pad"></div><div class="pad playing"></div><div class="pad"></div>
+                        <div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="song"><div class="subtle">Song 2 (same block)</div></article>
+            <article class="song"><div class="subtle">Song 3 (same block)</div></article>
+        </section>
+
+        <section class="section">
+            <div class="section-head"><div class="label">#director Performance</div></div>
+            <sl-select label="current artist">
+                <sl-option>Aria Signal</sl-option>
+                <sl-option>Nova Circuit</sl-option>
+            </sl-select>
+            <div style="display:grid; gap:8px; margin-top:8px;">
+                <sl-button variant="primary">Start Performance</sl-button>
+                <sl-button variant="danger">End Performance</sl-button>
+            </div>
+            <div class="qr" style="margin-top:10px; min-height:140px;">Performance QR Placeholder</div>
+        </section>
+
+        <section class="section">
+            <div class="section-head"><div class="label">#director Accounts</div></div>
+            <sl-details summary="Create Artist Account" open>
+                <div style="display:grid; gap:8px; margin-top:8px;">
+                    <sl-input label="username" value="artist-new"></sl-input>
+                    <sl-input label="password" type="password" password-toggle value="••••••••••"></sl-input>
+                    <sl-input label="email (optional)" value="artist@example.com"></sl-input>
+                    <sl-button variant="primary">Create Account</sl-button>
+                </div>
+            </sl-details>
+            <sl-details summary="Edit Account" style="margin-top:8px;">
+                <div style="display:grid; gap:8px; margin-top:8px;">
+                    <sl-select label="username"><sl-option>artist-a</sl-option></sl-select>
+                    <sl-input label="new username"></sl-input>
+                    <sl-input label="new password" type="password" password-toggle></sl-input>
+                    <sl-input label="new email"></sl-input>
+                    <sl-button>Save</sl-button>
+                </div>
+            </sl-details>
+        </section>
+
+        <section class="section">
+            <div class="section-head"><div class="label">#member + #temp-troupe Accounts</div></div>
+            <div class="settings-grid">
+                <sl-input label="current password"></sl-input>
+                <sl-input label="new username (optional)"></sl-input>
+                <sl-input label="new password (optional)" type="password" password-toggle></sl-input>
+                <sl-button>Update Credentials</sl-button>
+                <sl-divider></sl-divider>
+                <sl-input label="temp troupe username"></sl-input>
+                <sl-input label="temp troupe password" type="password" password-toggle></sl-input>
+                <sl-input label="temp troupe email"></sl-input>
+                <sl-button variant="primary">Create Troupe Account</sl-button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"></script>
+</body>
+</html>

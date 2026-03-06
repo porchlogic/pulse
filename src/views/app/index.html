@@ -1,0 +1,162 @@
+<div class="page" data-role="app-root">
+    <section class="card app-shell" data-role="app-shell" hidden>
+        <div class="card connection-card" style="margin:0;">
+            <div class="topbar">
+                <div class="beat ui-beat-display" aria-label="current beat">0</div>
+                <div>
+                    <p class="live-indicator" data-role="artist-live-indicator" hidden>LIVE</p>
+                    <p class="label" style="margin:0;">Current Artist</p>
+                    <div style="font-size:18px; margin-top:2px;" data-role="current-artist">-</div>
+                </div>
+                <div class="connection-transport">
+                    <button class="btn artist-play-toggle" id="artist-play-toggle" type="button" aria-pressed="false" aria-label="Play">
+                        <span class="play-icon" aria-hidden="true"></span>
+                        <span class="pause-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn artist-stop-toggle" id="artist-stop-toggle" type="button" aria-label="Stop">
+                        <span class="stop-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="topbar-right">
+                    <button type="button" class="btn topbar-logout" data-role="app-logout">Logout</button>
+                    <div class="status ui-status ui-status--not-connected" data-role="connection-status">disconnected</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin:0;">
+            <p class="title">Settings</p>
+            <div class="output-settings-slider">
+                <div>
+                    <p class="label">speaker offset</p>
+                    <input id="global-speaker-offset" data-role="global-speaker-offset" type="range" min="0" max="250" value="250" aria-label="speaker offset">
+                </div>
+            </div>
+            <div class="output-settings-actions">
+                <div>
+                    <p class="label">metronome</p>
+                    <label class="toggle-switch" aria-label="metronome">
+                        <input id="global-metronome-toggle" data-role="global-metronome-toggle" type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div>
+                    <p class="label">noise floor</p>
+                    <label class="toggle-switch" aria-label="noise floor">
+                        <input id="global-noise-floor-toggle" data-role="global-noise-floor-toggle" type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin:0;">
+            <p class="title">Tracks</p>
+            <div class="tracks" data-role="app-track-grid">
+                <button type="button" class="track" data-track="1"><span data-role="app-track-label" data-track-label="1">Track 1</span><span class="ui-track-presence" data-track-presence="1" hidden></span></button>
+                <button type="button" class="track" data-track="2"><span data-role="app-track-label" data-track-label="2">Track 2</span><span class="ui-track-presence" data-track-presence="2" hidden></span></button>
+                <button type="button" class="track" data-track="3"><span data-role="app-track-label" data-track-label="3">Track 3</span><span class="ui-track-presence" data-track-presence="3" hidden></span></button>
+                <button type="button" class="track" data-track="4"><span data-role="app-track-label" data-track-label="4">Track 4</span><span class="ui-track-presence" data-track-presence="4" hidden></span></button>
+                <button type="button" class="track" data-track="5"><span data-role="app-track-label" data-track-label="5">Track 5</span><span class="ui-track-presence" data-track-presence="5" hidden></span></button>
+                <button type="button" class="track" data-track="6"><span data-role="app-track-label" data-track-label="6">Track 6</span><span class="ui-track-presence" data-track-presence="6" hidden></span></button>
+                <button type="button" class="track" data-track="7"><span data-role="app-track-label" data-track-label="7">Track 7</span><span class="ui-track-presence" data-track-presence="7" hidden></span></button>
+                <button type="button" class="track" data-track="8"><span data-role="app-track-label" data-track-label="8">Track 8</span><span class="ui-track-presence" data-track-presence="8" hidden></span></button>
+            </div>
+        </div>
+
+        <div class="card" style="margin:0;" data-role="app-artist-wrap" hidden>
+            <p class="title">Artist</p>
+            <div data-role="app-artist-root"></div>
+        </div>
+
+        <div class="card" style="margin:0;" data-role="app-temp-troupe-create-wrap" hidden>
+            <p class="title">Create Account</p>
+            <form class="ui-unified-form" data-role="temp-troupe-create-form">
+                <div style="display:grid; gap:8px; margin-top:8px;">
+                    <input id="temp-troupe-username" class="field" value="" placeholder="username">
+                    <input id="temp-troupe-password" class="field" type="password" value="" placeholder="password">
+                    <input id="temp-troupe-email" class="field" value="" placeholder="email">
+                    <button type="submit" class="btn" data-role="temp-troupe-create-submit">Create Account</button>
+                </div>
+                <p class="label" data-role="temp-troupe-create-message" hidden></p>
+            </form>
+        </div>
+
+        <div class="card" style="margin:0;" data-role="app-member-edit-wrap" hidden>
+            <p class="title">Edit Account</p>
+            <form class="ui-unified-form" data-role="member-edit-form">
+                <div style="display:grid; gap:8px; margin-top:8px;">
+                    <input id="member-current-password" class="field" type="password" value="" placeholder="current password">
+                    <input id="member-new-username" class="field" value="" placeholder="new username (optional)">
+                    <input id="member-new-password" class="field" type="password" value="" placeholder="new password (optional)">
+                    <button type="submit" class="btn" data-role="member-edit-submit">Update Credentials</button>
+                </div>
+                <p class="label" data-role="member-edit-message" hidden></p>
+            </form>
+        </div>
+
+        <div class="card" style="margin:0;" data-role="app-director-performance-wrap" hidden>
+            <p class="title">Performance</p>
+            <div style="display:grid; gap:8px; margin-top:8px;">
+                <select class="select" data-role="director-live-dj"><option value="">select live artist</option></select>
+                <input class="field" data-role="director-bpm" type="number" min="60" max="220" step="1" placeholder="bpm">
+                <button id="performance-toggle" class="btn" type="button" data-role="director-performance-toggle" data-running="false">Start Performance</button>
+                <div class="qr" style="height:auto; aspect-ratio:1 / 1;">
+                    <img data-role="director-join-qr" alt="Performance QR" style="width:100%; height:100%; object-fit:cover;" hidden>
+                </div>
+                <p class="label" data-role="director-join-url">not started</p>
+            </div>
+        </div>
+
+        <div class="card" style="margin:0;" data-role="app-director-accounts-wrap" hidden>
+            <p class="title">Accounts</p>
+
+            <p class="title" style="margin-top:14px;">Create</p>
+            <form class="ui-unified-form" data-role="director-account-create-form">
+                <div style="display:grid; gap:8px; margin-top:8px;">
+                    <input id="director-account-username" class="field" value="" placeholder="username">
+                    <input id="director-account-password" class="field" type="password" value="" placeholder="password">
+                    <input id="director-account-display-name" class="field" value="" placeholder="email (optional)">
+                    <button type="submit" class="btn" data-role="director-account-create-submit">Create Account</button>
+                </div>
+            </form>
+
+            <p class="title" style="margin-top:14px;">Edit</p>
+            <form class="ui-unified-form" data-role="director-account-edit-form">
+                <div style="display:grid; gap:8px; margin-top:8px;">
+                    <select class="select" data-role="director-account-select"><option value="">select username</option></select>
+                    <input class="field" data-role="director-account-edit-username" value="" placeholder="new username">
+                    <input class="field" data-role="director-account-edit-password" type="password" value="" placeholder="new password">
+                    <input class="field" data-role="director-account-edit-email" value="" placeholder="new email">
+                    <button type="submit" class="btn">Save</button>
+                </div>
+            </form>
+            <p class="label" data-role="director-account-message" hidden></p>
+        </div>
+
+    </section>
+
+    <section class="card" data-role="app-auth-wrap" hidden>
+        <p class="title">Sign In</p>
+        <div style="display:grid; gap:8px; margin-top:10px;">
+            <video class="ui-auth-qr-video" data-role="app-qr-video" autoplay playsinline muted></video>
+            <p class="label" data-role="app-qr-status">Camera scanner idle.</p>
+            <div class="ui-row-end" style="justify-content:flex-start;">
+                <button type="button" class="btn" data-role="app-qr-start">Start QR Scanner</button>
+                <button type="button" class="btn" data-role="app-qr-stop">Stop</button>
+            </div>
+        </div>
+        <form class="ui-unified-form" data-role="app-login-form" style="margin-top:10px;">
+            <div style="display:grid; gap:8px;">
+                <input id="app-login-username" class="field" type="text" placeholder="username" autocomplete="username">
+                <input id="app-login-password" class="field" type="password" placeholder="password" autocomplete="current-password">
+                <button type="submit" class="btn" data-role="app-login-submit">Login</button>
+            </div>
+        </form>
+        <div style="display:grid; gap:8px; margin-top:12px;">
+            <input id="app-join-token" class="field" type="text" data-role="app-join-token" placeholder="session token or join url">
+            <button type="button" class="btn" data-role="app-join-submit">Join as Troupe</button>
+        </div>
+        <p class="label" data-role="app-auth-error" hidden></p>
+    </section>
+</div>

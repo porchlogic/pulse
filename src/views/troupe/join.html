@@ -1,0 +1,28 @@
+<!-- Troupe join template with QR scanner, manual code entry, and simulate-join fallback action. -->
+<div class="ui-stack">
+    <section class="ui-section">
+        <h2>scan qr code</h2>
+        <p>Scan the performance QR code to join as troupe.</p>
+        <div class="ui-stack">
+            <video data-role="qr-video" class="ui-qr-video" autoplay playsinline muted></video>
+            <p class="ui-label" data-role="qr-status">Camera scanner idle.</p>
+            <div class="ui-row-between">
+                <button type="button" class="ui-button" data-role="qr-start">Start Scanner</button>
+                <button type="button" class="ui-button ui-button--small" data-role="qr-stop">Stop Scanner</button>
+            </div>
+            <div class="ui-field">
+                <label class="ui-label" for="join-code">manual code/url</label>
+                <input id="join-code" class="ui-input" type="text" data-role="join-code-input" placeholder="Paste join URL or token">
+            </div>
+            <div class="ui-center">
+                <button type="button" class="ui-button" data-role="manual-join">Join with Code</button>
+            </div>
+            <div class="ui-center">
+                <button type="button" class="ui-button" data-role="simulate-qr-join">Simulate QR scan</button>
+            </div>
+            <div class="ui-center">
+                <button type="button" class="ui-button" data-nav="default">Back</button>
+            </div>
+        </div>
+    </section>
+</div>

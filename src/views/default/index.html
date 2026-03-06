@@ -1,0 +1,38 @@
+<!-- Unified default entry: scan performance QR or sign in with username/password. -->
+<div class="ui-stack">
+    <section class="ui-section">
+        <h2>scan code</h2>
+        <div class="ui-stack">
+            <video data-role="qr-video" class="ui-qr-video" autoplay playsinline muted></video>
+            <p class="ui-label" data-role="qr-status">Camera scanner idle.</p>
+            <div class="ui-row-between">
+                <button type="button" class="ui-button" data-role="qr-start">Start Scanner</button>
+                <button type="button" class="ui-button ui-button--small" data-role="qr-stop">Stop Scanner</button>
+            </div>
+            <div class="ui-field">
+                <label class="ui-label" for="join-code">manual code/url</label>
+                <input id="join-code" class="ui-input" type="text" data-role="join-code-input" placeholder="Paste join URL or token">
+            </div>
+            <div class="ui-center">
+                <button type="button" class="ui-button" data-role="manual-join">Join with Code</button>
+            </div>
+        </div>
+    </section>
+    <section class="ui-section">
+        <h2>member login</h2>
+        <form class="ui-form" data-role="member-login-form">
+            <div class="ui-field">
+                <label class="ui-label" for="member-username">username</label>
+                <input id="member-username" class="ui-input" type="text" autocomplete="username" placeholder="artist / troupe / director">
+            </div>
+            <div class="ui-field">
+                <label class="ui-label" for="member-password">password</label>
+                <input id="member-password" class="ui-input" type="password" autocomplete="current-password" placeholder="••••••••">
+            </div>
+            <p class="ui-label" data-role="member-login-error" hidden></p>
+            <div class="ui-row-end">
+                <button type="submit" class="ui-button" data-role="member-login-submit">Sign In</button>
+            </div>
+        </form>
+    </section>
+</div>

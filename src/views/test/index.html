@@ -1,0 +1,37 @@
+<section class="bt-drum-test">
+    <h2>Bluetooth Drum Pulse Test</h2>
+    <p class="bt-note">
+        Standalone test synth with conservative scheduling and click-safe envelopes.
+    </p>
+
+    <div class="bt-controls">
+        <button type="button" data-role="bt-start">Start</button>
+        <button type="button" data-role="bt-stop" disabled>Stop</button>
+    </div>
+
+    <div class="bt-grid">
+        <label>
+            BPM
+            <input data-role="bt-bpm" type="range" min="60" max="170" step="1" value="120">
+            <span data-role="bt-bpm-value">120</span>
+        </label>
+
+        <label>
+            Level
+            <input data-role="bt-level" type="range" min="0.05" max="0.9" step="0.01" value="0.42">
+            <span data-role="bt-level-value">0.42</span>
+        </label>
+
+        <label>
+            Offset (ms)
+            <input data-role="bt-offset" type="range" min="-120" max="220" step="1" value="0">
+            <span data-role="bt-offset-value">0</span>
+        </label>
+    </div>
+
+    <div class="bt-status">
+        <p>Beat: <strong data-role="bt-beat">-</strong></p>
+        <p>Context: <strong data-role="bt-context">idle</strong></p>
+        <p data-role="bt-log">Tap Start to begin.</p>
+    </div>
+</section>
